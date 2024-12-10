@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualização</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <div class="container mt-2" id="pdfContent">
+        <div class="row borda-button">
+            <div class="text-center mb-3 mt-3">
+                <span class="titulo-relatorio">Relatório de Visitas – Millennium S/A Fomento Mercantil</span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6 borda-button borda-right">
+                <p><strong>Razão Social:</strong> <span id="razaoSocial"></span></p>
+            </div>
+            <div class="col-4 borda-button borda-right">
+                <p><strong>CNPJ :</strong> <span id="cnpj"></span></p>
+            </div>
+            <div class="col-2 borda-button">
+                <p><strong>Data:</strong> <span id="data"></span></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 borda-button borda-right">
+                <p><strong>Data de Fundação:</strong> <span id="dataFundacao"></span></p>
+            </div>
+            <div class="col-8 borda-button">
+                <p><strong>Ramo de Atividade:</strong> <span id="ramoAtividade"></span></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 borda-button borda-right">
+                <p><strong>Contato:</strong> <span id="contato"></span></p>
+            </div>
+            <div class="col-3 borda-button borda-right">
+                <p><strong>Cargo:</strong> <span id="cargo"></span></p>
+            </div>
+            <div class="col-3 borda-button borda-right">
+                <p><strong>Telefone:</strong> <span id="telefone"></span></p>
+            </div>
+            <div class="col-3 borda-button">
+                <p><strong>Celular:</strong> <span id="celular"></span></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-9 borda-button ">
+                <p><strong>Endereço:</strong> <span id="endereco"></span></p>
+            </div>
+            <div class="col-3 borda-button">
+                <p><strong>Bairro:</strong> <span id="bairro"></span></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 borda-button borda-right">
+                <p><strong>Cidade:</strong> <span id="cidade"></span></p>
+            </div>
+            <div class="col-1 borda-button borda-right">
+                <p><strong>Uf:</strong> <span id="uf"></span></p>
+            </div>
+            <div class="col-3 borda-button borda-right">
+                <p><strong>Cep:</strong> <span id="cep"></span></p>
+            </div>
+            <div class="col-4 borda-button">
+                <p><strong>Email:</strong> <span id="email"></span></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 borda-button borda-right">
+                <p><strong>Valor do Capital Social: R$:</strong> <span id="capitalSocial"></span></p>
+            </div>
+            <div class="col-3 borda-button borda-right">
+                <p><strong>Capital Nacional:</strong> <span id="uf"></span></p>
+            </div>
+            <div class="col-3 borda-button">
+                <p><strong>Capital Estrangeiro:</strong> <span id="uf"></span></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center ">
+                <strong><span>Quadro Societário/conjuges /Avalistas / Procuradores:</span></strong>
+            </div>
+            <div class="col-12 borda-button">
+                <strong>Sócio:</strong> <span id="uf" class="infos-bancarios"></span>
+                <strong>Aval:</strong> <span id="uf" class="infos-bancarios"></span>
+                <strong>procurador:</strong> <span id="uf" class="infos-bancarios"></span>
+                <strong>Tel:</strong> <span id="uf" class="infos-bancarios"></span>
+                <strong>email:</strong> <span id="uf" class="infos-bancarios"></span> <br>
+                <strong>RG:</strong> <span id="uf" class="infos-bancarios"></span>
+                <strong>CPF:</strong> <span id="uf" class="infos-bancarios"></span>
+                <strong>e-CPF: [ ]</strong> <span id="uf" class="infos-bancarios"></span>
+                <strong>Profissão:</strong> <span id="uf" class="infos-bancarios"></span>
+                <strong>Est.Civil:</strong> <span id="uf" class="infos-bancarios"></span>
+                <strong>Polit.Exposta: [ ]</strong> <span id="uf" class="infos-bancarios"></span> <br>
+                <strong>Conjugue: [ ]</strong> <span id="uf" class="infos-bancarios"></span>
+                <strong>Desconsiderar aval cônjuge:</strong> <span id="uf" class="infos-bancarios"></span>
+                <strong>Telefone:</strong> <span id="uf" class="infos-bancarios"></span>
+                <strong>E-mai:</strong> <span id="uf" class="infos-bancarios"></span> <br>
+                <strong>RG:</strong> <span id="uf" class="infos-bancarios"></span>
+                <strong>CPF:</strong> <span id="uf" class="infos-bancarios"></span>
+                <strong>e-CPF: </strong> <span id="uf" class="infos-bancarios"></span>
+                <strong>Profissão:</strong> <span id="uf" class="infos-bancarios"></span>
+                <strong>Polit.Exposta: [ ]:</strong> <span id="uf" class="infos-bancarios"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 borda-button">
+                <p><strong>Possui outras empresas no Grupo Econômico:</strong> <span id="capitalSocial"></span></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 borda-button">
+                <p><strong>Área Geográfica de Atuação: </strong> <span id="areaAtuacao"></span></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-7 borda-button borda-right">
+                <p><strong>Opera com empresas ou Órgãos Governamentais: </strong> <span id="capitalSocial"></span></p>
+            </div>
+            <div class="col-5 borda-button">
+                <p><strong>Percentual sobre o faturamento (%): </strong> <span id="capitalSocial"></span></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 borda-button borda-right">
+                <p><strong>Prazo e ticket médio vendas: </strong> <span id="prazoETicketMedioVendas"></span></p>
+            </div>
+            <div class="col-2 borda-button borda-right">
+                <p><strong>% Cheques:</strong> <span id="porcentoCheques"></span></p>
+            </div>
+            <div class="col-2 borda-button borda-right">
+                <p><strong>% Dpl:</strong> <span id="porcentoDpl"></span></p>
+            </div>
+            <div class="col-2 borda-button borda-right">
+                <p><strong>% Cartões:</strong> <span id="porcentoCartao"></span></p>
+            </div>
+            <div class="col-2 borda-button">
+                <p><strong>% Outros:</strong> <span id="porcentoOutros"></span></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 borda-button borda-right">
+                <p><strong>Estoques: R$</strong> <span id="estoquesReais"></span></p>
+            </div>
+            <div class="col-4 borda-button borda-right">
+                <p><strong>Nº Funcionários:</strong> <span id="numeroFuncionarios"></span></p>
+            </div>
+            <div class="col-4 borda-button">
+                <p><strong>Valor da Folha: </strong> <span id="valorDaFolha"></span></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 borda-button">
+                <p><strong>Relação de Frota/Equipamentos</strong> <span id="relacaoFrotasEquipamentos"></span></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 borda-button">
+                <p><strong>Instalações:</strong> <span id="instalacoes"></span></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2 borda-button borda-right">
+                <p><strong>Imóvel Próprio</strong> <span id="capitalSocial"></span></p>
+            </div>
+            <div class="col-2 borda-button">
+                <p><strong>Financiado</strong> <span id="capitalSocial"></span></p>
+            </div>
+            <div class="col-3 borda-button borda-right">
+                <p><strong>Saldo Devedor: R$ </strong> <span id="capitalSocial"></span></p>
+            </div>
+            <div class="col-2 borda-button">
+                <p><strong>Alugado </strong> <span id="capitalSocial"></span></p>
+            </div>
+            <div class="col-3 borda-button">
+                <p><strong>Valor do Aluguel: </strong> <span id="capitalSocial"></span></p>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-4 borda-button borda-right">
+                <p><strong>Área/Terreno (m²):</strong> <span id="areaTerreno"></span></p>
+            </div>
+            <div class="col-3 borda-button borda-right">
+                <p><strong>Área Construída:</strong> <span id="areaConstruida"></span></p>
+            </div>
+            <div class="col-5 borda-button">
+                <p><strong>Valor (R$):</strong> <span id="areaConstruidaValor"></span></p>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-12 borda-button container-info-gerente">
+                <span>Informações a serem preenchidas pelo Gerente da Conta / Crédito</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 borda-button borda-right">
+                <div class="row borda-button">
+                    <p><strong>Propósito e Natureza Relação de Negócio:</strong> <span id="capitalSocial"></span></p>
+                </div>
+                <div class="row">
+                    <p><strong>Atividades Efetivamente Desenvolvidas:</strong> <span id="capitalSocial"></span></p>
+                </div>
+            </div>
+            <div class="col-6 borda-button">
+                <strong>Beneficiário das Operações:</strong> <span id="beneficiarioDasOperacoes"></span> <br>
+                <strong>Banco:</strong> <span id="banco" class="infos-bancarios"></span>
+                <strong>Conta-Corrente:</strong> <span id="contaCorrente" class="infos-bancarios"></span>
+                <strong>Agencia:</strong> <span id="agencia" class="infos-bancarios"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 borda-button">
+                <p><strong>Serviços e Créditos Negociados: </strong> <span id="capitalSocial"></span></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 borda-button borda-right">
+                <p><strong>Características dos Sacados:</strong> <span id="capitalSocial"></span></p>
+            </div>
+            <div class="col-6 borda-button">
+                <p><strong>Explique Concentração:</strong> <span id="capitalSocial"></span></p>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-12 borda-button">
+                <strong><span>Condições do Crédito / Confirmações:</span></strong><br>
+                <strong><span>Não confirmar até R$</span></strong><span id="naoConfirmarAte" class="infos-bancarios"></span>
+                <strong><span>Pós confirmadas:</span></strong><span id="posConfirmadas" class="infos-bancarios"></span>
+                <strong><span>Pré confirmadas:</span></strong><span id="preConfirmadas"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 text-center borda-button borda-right">
+                <strong><span>Tipo de Lastro dos Recebíveis:</span></strong> <br>
+                <span>[ ]Venda Mercantil [ ] Prestação Serviços [ ]CT-e</span>
+            </div>
+            <div class="col-4 borda-button borda-right">
+                <strong><span>Emissão Boletos:</span></strong> <br>
+                <span>[]Bco [ ]Factoring
+                    [ ]pré-impresso [ ]Comissária
+                    [ ]Cnab Bco [ ]Cnab Cedente</span>
+            </div>
+            <div class="col-4 text-center borda-button">
+                <strong><span>Prazo Protesto <br> Após 10 dias vencido</span></strong> <br>
+                <span id="prazoProtestoVencimento"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 borda-button borda-right">
+                <p><strong>Possui Restritivos:</strong> <span id="possuiRestritivos"></span></p>
+            </div>
+            <div class="col-2 borda-button borda-right">
+                <p><strong>Risco Cedente:</strong> <span id="riscoCedente"></span></p>
+            </div>
+            <div class="col-3 borda-button borda-right">
+                <p><strong>Taxa serviços/Advalorem:</strong> <span id="taxaServicosAdvalorem"></span></p>
+            </div>
+            <div class="col-2 borda-button borda-right">
+                <p><strong>Tarifa Cheque:</strong> <span id="tarifaCheque"></span></p>
+            </div>
+            <div class="col-2 borda-button">
+                <p><strong>Tarifa Dpl:</strong> <span id="tarifaDpl"></span></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <p><strong>Limite Global</strong></p>
+                <strong>Op convencional: R$</strong> <span id="opConvencional" class="infos-bancarios"></span> <br>
+                <strong>Op Comissária: R$</strong> <span id="opComissaria" class="infos-bancarios"></span> <br>
+                <strong>Op Intercompany: R$</strong> <span id="opIntercompany" class="infos-bancarios"></span> <br>
+                <strong>Nota Comercial: R$</strong> <span id="notaComercial" class="infos-bancarios"></span> <br>
+                <strong>CCB: R$</strong> <span id="ccb" class="infos-bancarios"></span> <br>
+                <strong>Cheque: R$</strong> <span id="cheque" class="infos-bancarios"></span> <br> <br> <br>
+
+                <strong>Floating:</strong> <span id="floating" class="infos-bancarios"></span> <br>
+                <strong>Tipo de Lastro:</strong> <span id="tipoDeLastro" class="infos-bancarios"></span> <br>
+                <strong>Confirmação:</strong> <span id="confirmacao" class="infos-bancarios"></span> <br>
+                <strong>Boleto:</strong> <span id="boleto" class="infos-bancarios"></span>
+            
+            </div>
+            <div class="col-9 desagio-info">
+                <strong>Deságio %: </strong> <span id="desagio"></span> <br>
+                <strong>Deságio %: </strong> <span id="desagioOpComissaria"></span><br>
+                <strong>Deságio %: </strong> <span id="desagioIntercompany"></span> <br>
+                <strong>Deságio %: </strong> <span id="desagioNotaComercial"></span> <br>
+                <strong>Deságio %: </strong> <span id="desagioCcb"></span> <br>
+                <strong>Deságio %: </strong> <span id="desagioCheque"></span> <br>
+            </div>
+        </div>
+
+    </div>
+    <button class="btn btn-success mt-3" onclick="gerarPDF()">Gerar PDF</button>
+    <button class="btn btn-primary mt-3" onclick="voltar()">Voltar</button>
+</body>
+
+</html>

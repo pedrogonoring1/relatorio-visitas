@@ -1,0 +1,42 @@
+.borda {
+    border: 1px solid black; /* Define a borda */
+    box-sizing: border-box; /* Inclui padding e borda no tamanho total */
+}
+.borda-button {
+    border-bottom: 1px solid black; /* Define a borda */
+    box-sizing: border-box; /* Inclui padding e borda no tamanho total */
+}
+
+.borda-right {
+    border-right: 1px solid black; /* Define a borda */
+    box-sizing: border-box; /* Inclui padding e borda no tamanho total */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    border: 1px;
+    border-style: solid;
+    border-color: black;
+}
+
+.titulo-relatorio {
+    color: rgb(240, 136, 0);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.container-info-gerente {
+    background-color: rgb(236, 236, 236);
+    font-style: italic;
+}
+
+.infos-bancarios {
+    margin-right: 40px;
+}
+
+.desagio-info {
+    margin-top: 30px;
+}

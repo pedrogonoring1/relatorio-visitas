@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function visualizarDados() {
+        const formData = {
+            razaoSocial: document.getElementById('razaoSocial').value,
+            cnpj: document.getElementById('cnpj').value,
+            data: document.getElementById('data').value,
+            dataFundacao: document.getElementById('dataFundacao').value,
+            ramoAtividade: document.getElementById('ramoAtividade').value,
+            contato: document.getElementById('contato').value,
+            cargo: document.getElementById('cargo').value,
+            telefone: document.getElementById('telefone').value,
+            celular: document.getElementById('celular').value,
+            email: document.getElementById('email').value,
+            endereco: document.getElementById('endereco').value,
+            bairro: document.getElementById('bairro').value,
+            cidade: document.getElementById('cidade').value,
+            uf: document.getElementById('uf').value,
+            cep: document.getElementById('cep').value,
+            capitalSocial: document.getElementById('capitalSocial').value,
+            capital: document.getElementById('capital').value,
+            socios: document.getElementById('socios').value,
+            outrasEmpresas: document.getElementById('outrasEmpresas').value,
+            cnpjOutrasEmpresas: document.getElementById('cnpjOutrasEmpresas').value,
+            areaAtuacao: document.getElementById('areaAtuacao').value,
+            operaComEmpresasOuOrgaoGovernamental: document.getElementById('operaComEmpresasOuOrgaoGovernamental').value,
+            percentualSobreFaturamento: document.getElementById('percentualSobreFaturamento').value,
+            prazoETicketMedioVendas: document.getElementById('prazoETicketMedioVendas').value,
+            porcentoCheques: document.getElementById('porcentoCheques').value,
+            porcentoDpl: document.getElementById('porcentoDpl').value,
+            porcentoCartao: document.getElementById('porcentoCartao').value,
+            porcentoOutros: document.getElementById('porcentoOutros').value,
+            estoquesReais: document.getElementById('estoquesReais').value,
+            numeroFuncionarios: document.getElementById('numeroFuncionarios').value,
+            valorDaFolha: document.getElementById('valorDaFolha').value,
+            relacaoFrotasEquipamentos: document.getElementById('relacaoFrotasEquipamentos').value,
+            instalacoes: document.getElementById('instalacoes').value,
+            imovelProprio: document.getElementById('imovelProprio').value,
+            financiado: document.getElementById('financiado').value,
+            saldoDevedor: document.getElementById('saldoDevedor').value,
+            alugado: document.getElementById('alugado').value,
+            valorDoAluguel: document.getElementById('valorDoAluguel').value,
+            areaTerreno: document.getElementById('areaTerreno').value,
+            areaConstruida: document.getElementById('areaConstruida').value,
+            areaConstruidaValor: document.getElementById('areaConstruidaValor').value,
+            propositoENaturezaRelacaoNegocio: document.getElementById('propositoENaturezaRelacaoNegocio').value,
+            beneficiarioDasOperacoes: document.getElementById('beneficiarioDasOperacoes').value,
+            atividadesEfetivamenteDesenvolvidas: document.getElementById('atividadesEfetivamenteDesenvolvidas').value,
+            banco: document.getElementById('banco').value,
+            contaCorrente: document.getElementById('contaCorrente').value,
+            agencia: document.getElementById('agencia').value,
+            servicosECredtiosNegociados: document.getElementById('servicosECredtiosNegociados').value,
+            caracteristicasDosSacados: document.getElementById('caracteristicasDosSacados').value,
+            expliqueConcentracao: document.getElementById('expliqueConcentracao').value,
+            naoConfirmarAte: document.getElementById('naoConfirmarAte').value,
+            posConfirmadas: document.getElementById('posConfirmadas').value,
+            preConfirmadas: document.getElementById('preConfirmadas').value,
+            tiposDeLastroDosRecebiveis: Array.from(document.getElementById('tiposDeLastroDosRecebiveis').selectedOptions).map(option => option.value),
+            emissaoBoletos: Array.from(document.getElementById('emissaoBoletos').selectedOptions).map(option => option.value),
+            prazoProtestoVencimento: document.getElementById('prazoProtestoVencimento').value,
+            possuiRestritivos: document.getElementById('possuiRestritivos').value,
+            riscoCedente: document.getElementById('riscoCedente').value,
+            taxaServicosAdvalorem: document.getElementById('taxaServicosAdvalorem').value,
+            tarifaCheque: document.getElementById('tarifaCheque').value,
+            tarifaDpl: document.getElementById('tarifaDpl').value,
+            opConvencional: document.getElementById('opConvencional').value,
+            desagio: document.getElementById('desagio').value,
+            opComissaria: document.getElementById('opComissaria').value,
+            desagioOpComissaria: document.getElementById('desagioOpComissaria').value,
+            opIntercompany: document.getElementById('opIntercompany').value,
+            desagioIntercompany: document.getElementById('desagioIntercompany').value,
+            notaComercial: document.getElementById('notaComercial').value,
+            desagioNotaComercial: document.getElementById('desagioNotaComercial').value,
+            ccb: document.getElementById('ccb').value,
+            desagioCcb: document.getElementById('desagioCcb').value,
+            cheque: document.getElementById('cheque').value,
+            desagioCheque: document.getElementById('desagioCheque').value,
+            floating: document.getElementById('floating').value,
+            tipoDeLastro: document.getElementById('tipoDeLastro').value,
+            confirmacao: document.getElementById('confirmacao').value,
+            boleto: document.getElementById('boleto').value,
+        };
+
+    localStorage.setItem('formData', JSON.stringify(formData));
+    window.location.href = 'visualizacao-resultado/visualizacao.html';
+}
+    </script>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+                <h1>Formulário Relatório de Visitas</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <form>
+                    <div class="row">
+                        <!-- Dados Gerais -->
+                        <h5 class="mt-5">Dados Gerais</h5>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="razaoSocial" class="form-label">Razão Social:</label>
+                            <input type="text" class="form-control" id="razaoSocial">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="cnpj" class="form-label">CNPJ:</label>
+                            <input type="text" class="form-control" id="cnpj">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="data" class="form-label">Data:</label>
+                            <input type="date" class="form-control" id="data">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="dataFundacao" class="form-label">Data de Fundação:</label>
+                            <input type="date" class="form-control" id="dataFundacao">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="ramoAtividade" class="form-label">Ramo de Atividade:</label>
+                            <input type="text" class="form-control" id="ramoAtividade">
+                        </div>
+
+                        <!-- Contato -->
+                        <h5 class="mt-5">Contato</h5>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="contato" class="form-label">Contato:</label>
+                            <input type="text" class="form-control" id="contato">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="cargo" class="form-label">Cargo:</label>
+                            <input type="text" class="form-control" id="cargo">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="telefone" class="form-label">Telefone:</label>
+                            <input type="text" class="form-control" id="telefone">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="celular" class="form-label">Celular:</label>
+                            <input type="text" class="form-control" id="celular">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="email" class="form-label">E-mail:</label>
+                            <input type="email" class="form-control" id="email">
+                        </div>
+
+                        <!-- Endereço -->
+                        <h5 class="mt-5">Endereço</h5>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="endereco" class="form-label">Endereço:</label>
+                            <input type="text" class="form-control" id="endereco">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="bairro" class="form-label">Bairro:</label>
+                            <input type="text" class="form-control" id="bairro">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="cidade" class="form-label">Cidade:</label>
+                            <input type="text" class="form-control" id="cidade">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="uf" class="form-label">UF:</label>
+                            <input type="text" class="form-control" id="uf">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="cep" class="form-label">CEP:</label>
+                            <input type="text" class="form-control" id="cep">
+                        </div>
+
+                        <!-- Informações Financeiras -->
+                        <h5 class="mt-5">Informações Financeiras</h5>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="capitalSocial" class="form-label">Valor do Capital Social (R$):</label>
+                            <input type="number" class="form-control" id="capitalSocial">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="capital" class="form-label">Capital:</label>
+                            <select class="form-select" id="capital">
+                                <option value="Nacional">Nacional</option>
+                                <option value="Estrangeiro">Estrangeiro</option>
+                            </select>
+                        </div>
+
+                        <!-- Quadro Societário -->
+                        <h5 class="mt-5">Quadro Societário</h5>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="socios" class="form-label">Sócios / Avalistas / Procuradores:</label>
+                            <textarea class="form-control" id="socios" rows="3"></textarea>
+                        </div>
+
+                        <!-- Outras Informações -->
+                        <h5 class="mt-5">Outras Informações</h5>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="outrasEmpresas" class="form-label">Possui outras empresas no grupo
+                                econômico?</label>
+                            <select class="form-select" id="outrasEmpresas">
+                                <option value="Sim">Sim</option>
+                                <option value="Não">Não</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="areaAtuacao" class="form-label">CNPJ:</label>
+                            <input type="text" class="form-control" id="cnpjOutrasEmpresas">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="areaAtuacao" class="form-label">Área Geográfica de Atuação:</label>
+                            <input type="text" class="form-control" id="areaAtuacao">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="outrasEmpresas" class="form-label">Opera com empresas ou Órgãos Governamentais?</label>
+                            <select class="form-select" id="operaComEmpresasOuOrgaoGovernamental">
+                                <option value="Sim">Sim</option>
+                                <option value="Não">Não</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="areaAtuacao" class="form-label">Percentual sobre o faturamento (%):</label>
+                            <input type="text" class="form-control" id="percentualSobreFaturamento">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="areaAtuacao" class="form-label">Prazo e ticket médio vendas:</label>
+                            <input type="text" class="form-control" id="prazoETicketMedioVendas">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="areaAtuacao" class="form-label">% Cheques:</label>
+                            <input type="text" class="form-control" id="porcentoCheques">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="areaAtuacao" class="form-label">% Dpl:</label>
+                            <input type="text" class="form-control" id="porcentoDpl">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="areaAtuacao" class="form-label">% Cartões:</label>
+                            <input type="text" class="form-control" id="porcentoCartao">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="areaAtuacao" class="form-label">% Outros:</label>
+                            <input type="text" class="form-control" id="porcentoOutros">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="capitalSocial" class="form-label">Estoques: (R$)</label>
+                            <input type="number" class="form-control" id="estoquesReais">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="capitalSocial" class="form-label">Nº Funcionários:</label>
+                            <input type="number" class="form-control" id="numeroFuncionarios">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="capitalSocial" class="form-label">Valor da Folha:</label>
+                            <input type="number" class="form-control" id="valorDaFolha">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="capitalSocial" class="form-label">Relação de Frota/Equipamentos:</label>
+                            <input type="number" class="form-control" id="relacaoFrotasEquipamentos">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="areaAtuacao" class="form-label">Instalações:</label>
+                            <input type="text" class="form-control" id="instalacoes">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="outrasEmpresas" class="form-label">Imóvel Próprio</label>
+                            <select class="form-select" id="imovelProprio">
+                                <option value="Sim">Sim</option>
+                                <option value="Não">Não</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="outrasEmpresas" class="form-label">Financiado</label>
+                            <select class="form-select" id="financiado">
+                                <option value="Sim">Sim</option>
+                                <option value="Não">Não</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="capitalSocial" class="form-label">Saldo Devedor (R$):</label>
+                            <input type="number" class="form-control" id="saldoDevedor">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="outrasEmpresas" class="form-label">Alugado</label>
+                            <select class="form-select" id="alugado">
+                                <option value="Sim">Sim</option>
+                                <option value="Não">Não</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="capitalSocial" class="form-label">Valor do Aluguel (R$):</label>
+                            <input type="number" class="form-control" id="valorDoAluguel">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="capitalSocial" class="form-label">Área/Terreno (/m²):</label>
+                            <input type="number" class="form-control" id="areaTerreno">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="capitalSocial" class="form-label">Área Construída:</label>
+                            <input type="number" class="form-control" id="areaConstruida">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="capitalSocial" class="form-label">Valor (R$):</label>
+                            <input type="number" class="form-control" id="areaConstruidaValor">
+                        </div>
+
+                        <!-- Dados Gerente da Conta -->
+                        <h5 class="mt-5">Informações a serem preenchidas pelo Gerente da Conta / Crédito</h5>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="areaAtuacao" class="form-label">Propósito e Natureza Relação de Negócio:</label>
+                            <input type="text" class="form-control" id="propositoENaturezaRelacaoNegocio">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="outrasEmpresas" class="form-label">Beneficiário das Operações:</label>
+                            <select class="form-select" id="beneficiarioDasOperacoes">
+                                <option value="proprio">Próprio</option>
+                                <option value="terceiros">Terceiros</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="outrasEmpresas" class="form-label">Atividades Efetivamente Desenvolvidas:</label>
+                            <select class="form-select" id="atividadesEfetivamenteDesenvolvidas">
+                                <option value="Sim">Sim</option>
+                                <option value="Não">Não</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="areaAtuacao" class="form-label">Banco:</label>
+                            <input type="text" class="form-control" id="banco" value="Santander">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="areaAtuacao" class="form-label">Banco:</label>
+                            <input type="text" class="form-control" id="banco">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="areaAtuacao" class="form-label">Conta-Corrente:</label>
+                            <input type="text" class="form-control" id="contaCorrente">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="areaAtuacao" class="form-label">Agencia:</label>
+                            <input type="text" class="form-control" id="agencia">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="outrasEmpresas" class="form-label">Serviços e Créditos Negociados:</label>
+                            <select class="form-select" id="servicosECredtiosNegociados">
+                                <option value="Comissária">Comissária</option>
+                                <option value="NcCcb">NC/CCB</option>
+                                <option value="CompraReceBiveisChDpl">Compra de Recebíveis CH/DPL</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="outrasEmpresas" class="form-label">Características dos Sacados:</label>
+                            <select class="form-select" id="caracteristicasDosSacados">
+                                <option value="Pulverizados">Pulverizados</option>
+                                <option value="Concentrados">Concentrados</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="areaAtuacao" class="form-label">Explique Concentração:</label>
+                            <input type="text" class="form-control" id="expliqueConcentracao">
+                        </div>
+
+                        <!-- Dados Gerente da Conta -->
+                        <h6 class="mt-3">Condições do Crédito / Confirmações:</h6>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="capitalSocial" class="form-label">Não confirmar até (R$):</label>
+                            <input type="number" class="form-control" id="naoConfirmarAte">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="capitalSocial" class="form-label">Pós confirmadas (R$):</label>
+                            <input type="number" class="form-control" id="posConfirmadas">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="capitalSocial" class="form-label">Pré confirmadas (R$):</label>
+                            <input type="number" class="form-control" id="preConfirmadas">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="outrasEmpresas" class="form-label">Tipo de Lastro dos Recebíveis:</label>
+                            <select class="form-select" id="tiposDeLastroDosRecebiveis" multiple="true">
+                                <option value="VendaMercantil">Venda Mercantil</option>
+                                <option value="PrestacaoServico">Prestação Serviços</option>
+                                <option value="Cte">CT-e</option>
+                            </select>
+                            <span class="info-form">Aperte Ctrl e clique em mais de uma opção para selecionar multiplo</span>
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="outrasEmpresas" class="form-label">Emissão Boletos:</label>
+                            <select class="form-select" id="emissaoBoletos" multiple="true">
+                                <option value="Bco">Bco</option>
+                                <option value="Factoring">Factoring</option>
+                                <option value="PreImpresso">pré-impresso</option>
+                                <option value="Comissaria">Comissária</option>
+                                <option value="CnabBco">Cnab Bco</option>
+                                <option value="CnabCedente">Cnab Cedente</option>
+                            </select>
+                            <span class="info-form">Aperte Ctrl e clique em mais de uma opção para selecionar multiplo</span>
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="areaAtuacao" class="form-label">Prazo Protesto Após 10 dias vencido:</label>
+                            <input type="text" class="form-control" id="prazoProtestoVencimento">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="areaAtuacao" class="form-label">Possui Restritivos:</label>
+                            <input type="text" class="form-control" id="possuiRestritivos">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="areaAtuacao" class="form-label">Risco Cedente:</label>
+                            <input type="text" class="form-control" id="riscoCedente">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="areaAtuacao" class="form-label">Taxa serviços/Advalorem:</label>
+                            <input type="text" class="form-control" id="taxaServicosAdvalorem">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="areaAtuacao" class="form-label">Tarifa Cheque:</label>
+                            <input type="text" class="form-control" id="tarifaCheque">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="areaAtuacao" class="form-label">Tarifa Dpl:</label>
+                            <input type="text" class="form-control" id="tarifaDpl">
+                        </div>
+
+                         <!-- Dados Gerente da Conta -->
+                        <h6 class="mt-3">Limite Global:</h6>
+                        <div class="mb-3 col-12 col-md-6">
+                            <label for="capitalSocial" class="form-label">Op convencional (R$):</label>
+                            <input type="number" class="form-control" id="opConvencional">
+                        </div>
+                        <div class="mb-3 col-12 col-md-6">
+                            <label for="capitalSocial" class="form-label">Deságio (%):</label>
+                            <input type="number" class="form-control" id="desagio">
+                        </div>
+                        <div class="mb-3 col-12 col-md-6">
+                            <label for="capitalSocial" class="form-label">Op Comissária (R$):</label>
+                            <input type="number" class="form-control" id="opComissaria">
+                        </div>
+                        <div class="mb-3 col-12 col-md-6">
+                            <label for="capitalSocial" class="form-label">Deságio (%):</label>
+                            <input type="number" class="form-control" id="desagioOpComissaria">
+                        </div>
+                        <div class="mb-3 col-12 col-md-6">
+                            <label for="capitalSocial" class="form-label">Op Intercompany (R$):</label>
+                            <input type="number" class="form-control" id="opIntercompany">
+                        </div>
+                        <div class="mb-3 col-12 col-md-6">
+                            <label for="capitalSocial" class="form-label">Deságio (%):</label>
+                            <input type="number" class="form-control" id="desagioIntercompany">
+                        </div>
+                        <div class="mb-3 col-12 col-md-6">
+                            <label for="capitalSocial" class="form-label">Nota Comercial (R$):</label>
+                            <input type="number" class="form-control" id="notaComercial">
+                        </div>
+                        <div class="mb-3 col-12 col-md-6">
+                            <label for="capitalSocial" class="form-label">Deságio (%):</label>
+                            <input type="number" class="form-control" id="desagioNotaComercial">
+                        </div>
+                        <div class="mb-3 col-12 col-md-6">
+                            <label for="capitalSocial" class="form-label">CCB (R$):</label>
+                            <input type="number" class="form-control" id="ccb">
+                        </div>
+                        <div class="mb-3 col-12 col-md-6">
+                            <label for="capitalSocial" class="form-label">Deságio (%):</label>
+                            <input type="number" class="form-control" id="desagioCcb">
+                        </div>
+                        <div class="mb-3 col-12 col-md-6">
+                            <label for="capitalSocial" class="form-label">Cheque (R$):</label>
+                            <input type="number" class="form-control" id="cheque">
+                        </div>
+                        <div class="mb-3 col-12 col-md-6">
+                            <label for="capitalSocial" class="form-label">Deságio (%):</label>
+                            <input type="number" class="form-control" id="desagioCheque">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="areaAtuacao" class="form-label">Floating:</label>
+                            <input type="text" class="form-control" id="floating">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="areaAtuacao" class="form-label">Tipo de Lastro:</label>
+                            <input type="text" class="form-control" id="tipoDeLastro">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="areaAtuacao" class="form-label">Confirmação:</label>
+                            <input type="text" class="form-control" id="confirmacao">
+                        </div>
+                        <div class="mb-3 col-12 col-md-4">
+                            <label for="areaAtuacao" class="form-label">Boleto:</label>
+                            <input type="text" class="form-control" id="boleto">
+                        </div>
+
+
+                        <button type="button" class="btn btn-primary" onclick="visualizarDados()">Visualizar
+                            Dados</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
